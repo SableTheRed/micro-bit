@@ -37,15 +37,12 @@ def playgame():
     for i in range(4):
         for card in Suit_order:
             deck.append(card)
+    #display.scroll("THE CARDS ARE BEING DEALT!")
     
+    #set initial hands for player and computer
     playerhand = []
     computerhand = []
-
-    #set initial hands for player and computer
-
-    display.scroll("THE CARDS ARE BEING DEALT!")
     x=0
-
     while x != 2:
         deck,playerhand = pickacard(deck, playerhand)
         deck,computerhand = pickacard(deck, computerhand)
@@ -71,52 +68,46 @@ def playgame():
             sleep(500)
             
         else:
-            display.scroll("YOUR SCORE IS:")
+            display.scroll("SCORE:")
             display.scroll(playerscore)
-            display.scroll("TWIST OR STICK?")
     
     #computer's turn
-    display.scroll("COMPUTER'S TURN:")
+    #display.scroll("COMPUTER'S TURN:")
     computerscore = checkhigh(computerhand)
     while computerscore <= 13:
         pickacard(deck,computerhand)
         computerscore = checkhigh(computerhand)
-        display.show(Image.ARROW_W)
-        sleep(250)
-        display.clear()
-        sleep(250)
-    display.show(Image.ARROW_E)
-    sleep(250)
-    display.clear()
-    sleep(250)
+        #display.show(Image.ARROW_W)
+        #sleep(250)
+        #display.clear()
+        #sleep(250)
+    #display.show(Image.ARROW_E)
+    #sleep(250)
+    #display.clear()
+    #sleep(250)
 
     #determine and print outcome:
-   
-
     if playerscore > 21:
-        display.scroll("BUST! YOU LOSE!")
+        display.scroll("BUST!")
     elif computerscore > 21:
-        display.scroll("COMPUTER IS BUST! YOU WIN!")
+        display.scroll("YOU WIN!")
     elif playerscore == 21:
-        display.scroll("BLACKJACK! YOU WIN!")
+        display.scroll("BLACKJACK!")
     elif playerscore >= computerscore:
-        display.scroll("YOUR HAND IS STRONGER! YOU WIN!")
+        display.scroll("YOU WIN!")
     else:
         display.scroll("YOU LOSE")
 
-    
-        
+playgame()       
 
-display.scroll("WELCOME TO BLACKJACK!")
-display.scroll("TWIST")
-display.show(Image.ARROW_W)
-sleep(500)
-display.clear
-sleep(250)
-display.scroll("STICK",100)
-display.show(Image.ARROW_E)
-sleep(500)
-display.clear
-sleep(250)
-
-playgame()
+#display.scroll("WELCOME TO BLACKJACK!")
+#display.scroll("TWIST")
+#display.show(Image.ARROW_W)
+#sleep(500)
+#display.clear
+#sleep(250)
+#display.scroll("STICK",100)
+#display.show(Image.ARROW_E)
+#sleep(500)
+#display.clear
+#sleep(250)
